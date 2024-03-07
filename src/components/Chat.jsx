@@ -7,7 +7,7 @@ import {fetchChatAPI} from '../services/api';
 import MessageBubble from './MessageBubble';
 import ChatInput from './ChatInput';
 
-const ChartComponent = () => {
+const ChatComponent = () => {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState('');
 
@@ -63,7 +63,7 @@ const ChartComponent = () => {
   );
 };
 
-ChartComponent.propTypes = {};
+ChatComponent.propTypes = {};
 
 const styles = StyleSheet.create({
   container: {
@@ -73,4 +73,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export {ChartComponent};
+export {ChatComponent};
