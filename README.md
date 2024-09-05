@@ -5,7 +5,7 @@ The [Add Amazon Bedrock Chat Capabilities to a React Native App](https://aws-pre
 
 ![Amazon Bedrock chat application user interface](./media/rn-chat-app.png)
 
-# Architecture Diagram
+## Architecture Diagram
 
 ![Figure 1: Flow of a mobile chat application using AWS services.](./media/amazon-bedrock-react-native-chat-app.png)
 Flow of a mobile chat application using AWS services.
