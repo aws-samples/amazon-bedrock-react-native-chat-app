@@ -1,7 +1,7 @@
 # Add Amazon Bedrock Chat Capabilities to a React Native App
 
 
-The [Add Amazon Bedrock Chat Capabilities to a React Native App](https://github.com/aws-samples/amazon-bedrock-react-native-chat-app) blog post will guide you through creating a simple mobile chat application. The application uses Amazon Bedrock to generate AI-powered chat features and enhance user experiences.
+The [Add Amazon Bedrock Chat Capabilities to a React Native App](https://aws.amazon.com/blogs/mobile/integrating-amazon-bedrock-chat-capabilities-in-react-native/) blog post will guide you through creating a simple mobile chat application. The application uses Amazon Bedrock to generate AI-powered chat features and enhance user experiences.
 
 ![Amazon Bedrock chat application user interface](./media/rn-chat-app.png)
 
