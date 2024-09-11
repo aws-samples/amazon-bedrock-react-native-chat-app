@@ -17,7 +17,9 @@ const fetchChatAPI = async message => {
 
     const { body } = await restOperation.response;
     const response = await body.json();
-    return response.completions[0]['data']['text']
+    const cleanedText = response.completions[0]?.data?.text?.replace(/[\r\n]/gm, '') || '';
+    return cleanedText
+
   } catch (error) {
     console.log('POST call failed :', JSON.parse(error.response.body));
   }

@@ -42,11 +42,8 @@ export const handler: APIGatewayProxyHandler = async (event) => {
     });
 
     const response = await bedrock.send(command);
-
     const responseBody: ResponseBody = JSON.parse(Buffer.from(response.body as Uint8Array).toString());
-    const completionMessage = responseBody.completion;
 
-    console.log("response:", response);
     return {
       statusCode: 200,
       body: JSON.stringify(responseBody),
