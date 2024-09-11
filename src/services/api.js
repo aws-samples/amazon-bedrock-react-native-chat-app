@@ -4,7 +4,6 @@
 import { post } from 'aws-amplify/api';
 
 const fetchChatAPI = async message => {
-  console.log("message", message)
   try {
     const restOperation = post({
       apiName: 'myRestApi',
@@ -15,10 +14,8 @@ const fetchChatAPI = async message => {
         }
       }
     });
-    console.log("restOperation", restOperation)
 
     const { body } = await restOperation.response;
-    console.log("body", body)
     const response = await body.json();
     return response.completions[0]['data']['text']
   } catch (error) {
