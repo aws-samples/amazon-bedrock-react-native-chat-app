@@ -8,6 +8,10 @@ node_modules/
 dist/
 web-build/
 
+
+# amplify
+.amplify
+
 # Native
 *.orig.*
 *.jks
