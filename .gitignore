@@ -9,7 +9,7 @@ dist/
 web-build/
 assets/
 
-amplify_outputs.json
+
 app.json
 
 # amplify
