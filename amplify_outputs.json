@@ -1,0 +1,12 @@
+{
+  "version": "1.1",
+  "custom": {
+    "API": {
+      "myRestApi": {
+        "endpoint": "[api-endpoint]", // Amplify generates the API endpoint automatically when the `npx ampx sandbox` command is run
+        "region": "us-east-1",
+        "apiName": "myRestApi"
+      }
+    }
+  }
+}

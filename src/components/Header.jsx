@@ -2,10 +2,10 @@
 // SPDX-License-Identifier: MIT-0
 
 import React from 'react';
-import {Text, View, StyleSheet} from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 
-const AppHeader = ({title}) => {
+const AppHeader = ({ title = 'Amazon Bedrock Chat App' }) => {
   return (
     <View style={styles.wrapper}>
       <Text style={styles.appTitle}>{title}</Text>
@@ -15,10 +15,6 @@ const AppHeader = ({title}) => {
 
 AppHeader.propTypes = {
   title: PropTypes.string.isRequired,
-};
-
-AppHeader.defaultProps = {
-  title: 'Amazon Bedrock Chat App',
 };
 
 export default AppHeader;
