@@ -11,6 +11,7 @@ assets/
 
 
 app.json
+package-lock.json
 
 # amplify
 .amplify
