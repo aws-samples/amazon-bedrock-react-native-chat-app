@@ -14,10 +14,10 @@ const backend = defineBackend({
     myApiFunction,
 });
 
-// create a new API stack
+// Create a new API stack
 const apiStack = backend.createStack("api-stack");
 
-// create a new REST API
+// Create a new REST API
 const myRestApi = new RestApi(apiStack, "RestApi", {
     restApiName: "myRestApi",
     deploy: true,
@@ -25,27 +25,31 @@ const myRestApi = new RestApi(apiStack, "RestApi", {
         stageName: "dev",
         loggingLevel: MethodLoggingLevel.INFO, // Enable logging for debugging
     },
+    // CORS configuration
     defaultCorsPreflightOptions: {
-        allowOrigins: Cors.ALL_ORIGINS, // Restrict this to domains you trust
-        allowMethods: Cors.ALL_METHODS, // Specify only the methods you need to allow
-        allowHeaders: Cors.DEFAULT_HEADERS, // Specify only the headers you need to allow
-    }, defaultMethodOptions: { authorizationType: AuthorizationType.NONE },
+        allowOrigins: Cors.ALL_ORIGINS, // Allow all origins. Restrict this to domains you trust in production.
+        allowMethods: Cors.ALL_METHODS, // Allow all HTTP methods. Restrict this to the methods you need in production.
+        allowHeaders: Cors.DEFAULT_HEADERS, // Allow all headers. Specify only the headers you need in production.
+    },
+    defaultMethodOptions: {
+        authorizationType: AuthorizationType.NONE, // API is open to unauthenticated access. Consider implementing authentication and authorization if required.
+    },
 });
 
-// create a new Lambda integration
+// Create a new Lambda integration
 const lambdaIntegration = new LambdaIntegration(
     backend.myApiFunction.resources.lambda
 );
 
-// create a new resource path for chat interactions
+// Create a new resource path for chat interactions
 const chatPath = myRestApi.root.addResource("chat");
 
-// add POST method to the chat resource path
+// Add POST method to the chat resource path
 chatPath.addMethod("POST", lambdaIntegration, {
-    authorizationType: AuthorizationType.NONE,
+    authorizationType: AuthorizationType.NONE, // The POST method is open to unauthenticated access. Implement authentication if needed.
 });
 
-// create a new IAM policy to allow Invoke access to the API and Bedrock model
+// Create a new IAM policy to allow Invoke access to the API and Bedrock model
 const apiRestPolicy = new Policy(apiStack, "RestApiPolicy", {
     statements: [
         new PolicyStatement({
@@ -67,7 +71,7 @@ const apiRestPolicy = new Policy(apiStack, "RestApiPolicy", {
 const lambdaExecutionRole = backend.myApiFunction.resources.lambda.role!;
 lambdaExecutionRole.attachInlinePolicy(apiRestPolicy);
 
-// add outputs to the configuration file
+// Add outputs to the configuration file
 backend.addOutput({
     custom: {
         API: {
